@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tasks Manager WebApp</title>
+    {{>head.hbs}}
+</head>
+
+<body>
+
+<h1>Task List</h1>
+
+{{#with treni.[0]}}
+<p>This is the first train: "{{ orarioPartenza }}" and it's {{#unless orarioArrivo }} not {{/unless}} urgent.</p>
+{{/with}}
+
+<div>
+    <ul>
+    {{#each treni}}
+        <li>{{orarioPartenza}}</li>
+    {{/each}}
+    </ul>
+</div>
+
+</body>
+</html>

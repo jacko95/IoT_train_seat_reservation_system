@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="refresh" content="10">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <title>BART</title>
+</head>
+<body style="margin: 0; padding: 0; background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(https://www.bart.gov/sites/default/files/banner-home-2-lg.jpg);background-position: no-repeat; background-size: cover cover;">
+    
+    <img src="https://www.bart.gov/sites/all/themes/bart/logo.svg" alt="" style="background-color: black; padding: 20px; position: fixed;">
+    
+    {{#each treni}}
+        <div style="background-color: white; float: left; padding: 20px; margin-top: 150px; margin-left: 100px; margin-right: 100px; position: relative; height: 300px; width: 200px;">
+            <h2 style="display: flex; justify-content: center;">Treno {{orarioPartenza}}</h2>
+            <p>Partenza: {{stazionePartenza}} {{orarioPartenza}} {{dataPartenza}}</p>
+            <p>Destinazione: {{stazioneDestinazione}} {{orarioArrivo}} {{dataArrivo}}</p>
+            <p>Durata: {{durata}} minuti</p>
+            <p>Tariffa: {{tariffa}} $</p>
+            {{#unless pieno}}
+            <button type="button" style="cursor: pointer;" onclick="prenota('{{orarioPartenza}}');">Prenota</button>
+            {{/unless}}
+            {{#if pieno}}
+            <p style="color: red; font-weight: 1000;">PRENOTAZIONI CHIUSE!</p>
+            {{/if}}
+            {{#unless pienoBici}} {{#unless pieno}}
+            <button class="bici" type="button" style="cursor: pointer;" onclick="prenotaBici('{{orarioPartenza}}');">Prenota con bici</button>
+            {{/unless}} {{/unless}}
+        </div>
+    {{/each}}
+
+    <script>
+        function prenota(id){
+            var RESTAPI = "http://localhost:4567/api/v1/treni/" + id;
+            var x = {treno: id, bici: 0};
+            var send = JSON.stringify(x);
+            $.post(RESTAPI, send);
+            window.alert("Prenotato!");
+            window.location.reload(true);
+            /*history.go(0);*/
+        }
+
+        function prenotaBici(id){
+            var RESTAPI = "http://localhost:4567/api/v1/treni/" + id;
+            var x = {treno: id, bici: 1};
+            var send = JSON.stringify(x);
+            $.post(RESTAPI, send);
+            window.alert("Prenotato!");
+            window.location.reload(true);
+            /*history.go(0);*/
+        }
+
+    </script> 
+</body>
+</html>

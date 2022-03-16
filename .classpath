@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="bin/main" path="src/main/java">
+		<attributes>
+			<attribute name="gradle_scope" value="main"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8/">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+	<classpathentry kind="lib" path="C:/Users/Domenico/.gradle/caches/modules-2/files-2.1/com.sparkjava/spark-template-handlebars/2.7.1/69876022f7d31555fdd1f40ab7f97cc8758809f7/spark-template-handlebars-2.7.1.jar" sourcepath="C:/Users/Domenico/.gradle/caches/modules-2/files-2.1/com.sparkjava/spark-template-handlebars/2.7.1/173175e1ab99b32a9462f3bffba260a7d407f865/spark-template-handlebars-2.7.1-sources.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin/default"/>
+</classpath>
